@@ -1,0 +1,6 @@
+{
+  "name": "Arun AI",
+  "description": "Premium modern AI assistant app with a light blue and white theme",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
