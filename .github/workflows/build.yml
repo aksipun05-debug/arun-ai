@@ -20,12 +20,13 @@ jobs:
         with:
           gradle-version: '9.3.1'
 
-      - name: Create Missing Env Files
+      - name: Create Missing Env & Keystore Files
         run: |
           touch .env.example
           touch .env
           echo "GEMINI_API_KEY=" > .env.example
           echo "GEMINI_API_KEY=" > .env
+          keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
 
       - name: Build Debug APK
         run: gradle assembleDebug --stacktrace --no-daemon
