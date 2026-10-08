@@ -20,6 +20,13 @@ jobs:
         with:
           gradle-version: '9.3.1'
 
+      - name: Create Missing Env Files
+        run: |
+          touch .env.example
+          touch .env
+          echo "GEMINI_API_KEY=" > .env.example
+          echo "GEMINI_API_KEY=" > .env
+
       - name: Build Debug APK
         run: gradle assembleDebug --stacktrace --no-daemon
 
